@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plate Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+  <h1>Plate Calculator</h1>
+
+  <div class="field">
+    <label for="target">Target weight</label>
+    <input type="number" id="target" placeholder="e.g. 225">
+  </div>
+
+  <div class="field">
+    <label for="bar">Bar weight</label>
+    <input type="number" id="bar" value="45">
+  </div>
+
+  <button id="calculate">Calculate</button>
+
+  <div id="result"></div>
+
+  <div class="bar-visual" id="bar-visual">
+    <div class="plates-left" id="plates-left"></div>
+    <div class="bar"></div>
+    <div class="plates-right" id="plates-right"></div>
+  </div>
+
+  <label class="unit-switch">
+    <input type="checkbox" id="unit-toggle">
+    <span class="switch-track">
+      <span class="switch-label switch-label-lb">LB</span>
+      <span class="switch-label switch-label-kg">KG</span>
+      <span class="switch-knob"></span>
+    </span>
+  </label>
+
+  <details class="inventory">
+    <summary>Plates available (per side)</summary>
+    <div class="inventory-grid" id="inventory-grid"></div>
+  </details>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

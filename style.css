@@ -1,0 +1,305 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #1a1a1a;
+  color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #ff6b35;
+}
+
+
+/* Form fields */
+.field {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #aaa;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background: #2a2a2a;
+  color: #f0f0f0;
+  border: 1px solid #444;
+  border-radius: 6px;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #ff6b35;
+}
+
+/* Inventory section */
+.inventory {
+  margin-bottom: 24px;
+  background: #2a2a2a;
+  border-radius: 6px;
+  padding: 12px 16px;
+}
+
+.inventory summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #aaa;
+  user-select: none;
+}
+
+.inventory summary:hover {
+  color: #f0f0f0;
+}
+
+.inventory-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.inventory-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inventory-row label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #f0f0f0;
+  min-width: 40px;
+}
+
+.inventory-row input {
+  width: 60px;
+  padding: 6px 8px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Main calculate button */
+#calculate {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #ff6b35;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#calculate:hover { background: #ff8555; }
+#calculate:active { transform: scale(0.98); }
+
+/* Result */
+#result {
+  margin-top: 24px;
+  padding: 16px;
+  background: #2a2a2a;
+  border-left: 3px solid #ff6b35;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#result:empty { display: none; }
+
+/* Bar visualization */
+.bar-visual {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+}
+
+.plates-left, .plates-right {
+  display: flex;
+  align-items: center;
+}
+
+.plates-left {
+  flex-direction: row-reverse;
+}
+
+.bar {
+  width: 120px;
+  height: 8px;
+  background: linear-gradient(to bottom, #888, #ccc, #888);
+  border-radius: 2px;
+}
+
+.plate {
+  border-radius: 3px;
+  margin: 0 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #000;
+  text-shadow: 0 0 2px rgba(255,255,255,0.5);
+  border: 1px solid rgba(0,0,0,0.3);
+}
+
+/* Unit switch (pill-style with label inside) */
+.unit-switch {
+  display: block;
+  margin: 40px auto 24px;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+}
+
+.unit-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+.switch-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2a2a2a;
+  border: 2px solid #444;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  transition: border-color 0.2s ease;
+}
+
+.switch-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #666;
+  z-index: 2;
+  transition: color 0.2s ease;
+}
+
+.switch-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 54px;
+  height: 30px;
+  background: #ff6b35;
+  border-radius: 30px;
+  transition: transform 0.2s ease;
+  z-index: 1;
+}
+
+.unit-switch input:not(:checked) ~ .switch-track .switch-label-lb {
+  color: #1a1a1a;
+}
+
+.unit-switch input:checked ~ .switch-track .switch-knob {
+  transform: translateX(56px);
+}
+
+.unit-switch input:checked ~ .switch-track .switch-label-kg {
+  color: #1a1a1a;
+}
+
+.unit-switch input:checked ~ .switch-track .switch-label-lb {
+  color: #666;
+}
+
+.unit-switch:hover .switch-track {
+  border-color: #666;
+}
+}
+
+.switch-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2a2a2a;
+  border: 2px solid #444;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  transition: border-color 0.2s ease;
+}
+
+.switch-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #666;
+  z-index: 2;
+  transition: color 0.2s ease;
+}
+
+/* The knob slides over one label at a time */
+.switch-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 54px;
+  height: 30px;
+  background: #ff6b35;
+  border-radius: 30px;
+  transition: transform 0.2s ease;
+  z-index: 1;
+}
+
+/* Default (unchecked = LB selected = knob on the left, LB text over orange) */
+.unit-switch input:not(:checked) ~ .switch-track .switch-label-lb {
+  color: #1a1a1a;
+}
+
+/* When checked (KG), slide knob right and light up KG label */
+.unit-switch input:checked ~ .switch-track .switch-knob {
+  transform: translateX(56px);
+}
+
+.unit-switch input:checked ~ .switch-track .switch-label-kg {
+  color: #1a1a1a;
+}
+
+.unit-switch input:checked ~ .switch-track .switch-label-lb {
+  color: #666;
+}
+
+.unit-switch:hover .switch-track {
+  border-color: #666;
+}
